@@ -1,0 +1,97 @@
+@import "./colors.scss";
+@import "./step.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+*, html > * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+}
+
+html {
+    font-weight: normal;
+    font-family: 'Roboto Mono', monospace;
+
+    background: $bg-general;
+    color: $font-color;
+
+    overflow: hidden;
+}
+
+main {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    height: 100vh;
+    width: 100vw;
+    padding: 5vw;
+    scroll-snap-align: start;
+} 
+
+#home {
+    .logo-home {
+        margin-top: -5vh;
+        img {
+            display: inline-block;
+            width: auto;
+            height: 50vh;
+            animation: fadein 3.5s ease-in-out;
+        }
+
+        small {
+            float: left;
+            visibility: hidden;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    .welcome-msg {
+        margin-top: 5vh;
+        text-align: center;
+        font-size: 1.5em;
+        font-family: 'Alex Brush', cursive;
+        animation: fadein 2.5s ease-in-out;
+        color: darken($font-color, 40%);
+
+        span {
+            display: block;
+            font-size: 2em;
+            color: $font-color;
+        }
+    }
+
+    .scroll-indicator {
+        position: absolute;
+        bottom: 6vh;
+        left: 50%;
+        margin-left: -2.5vh;
+        width: 5vh;
+        animation: bounce 1s ease infinite;
+    }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes bounce {
+    50%  { transform: translateY(-20%); }
+    100% { transform: translateY(0); }
+  }
