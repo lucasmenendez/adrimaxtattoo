@@ -15,7 +15,7 @@ export default class ScrollablePage {
     }
 
     static start(parent, child) {
-        new ScrollablePage(parent, child)
+        new ScrollablePage(parent, child);
     }
 
     init(parentSelector, childSelector) {
@@ -27,6 +27,8 @@ export default class ScrollablePage {
             this.current = parent.firstElementChild;
             this.current.classList.add("active");
         }
+
+        window.scroll({ top: 0 });
     }
 
     listenEvents() {
