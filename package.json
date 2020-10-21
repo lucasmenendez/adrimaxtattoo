@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/lucasmenendez/adrimax#readme",
   "dependencies": {
-    "locomotive-scroll": "github:locomotivemtl/locomotive-scroll#v4"
+    "locomotive-scroll": "github:locomotivemtl/locomotive-scroll#v4",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

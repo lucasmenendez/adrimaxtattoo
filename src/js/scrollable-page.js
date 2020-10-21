@@ -14,6 +14,10 @@ export default class ScrollablePage {
         this.listenEvents();
     }
 
+    static start(parent, child) {
+        new ScrollablePage(parent, child)
+    }
+
     init(parentSelector, childSelector) {
         const parent = document.querySelector(parentSelector);
         this.targets = Array.from(parent.querySelectorAll(childSelector));
@@ -73,7 +77,7 @@ export default class ScrollablePage {
             }, 66);
         }, false);
 
-        window.scrollTo({
+        window.scroll({
             top: this.current.offsetTop,
             left: this.current.offsetLeft,
             behavior: 'smooth',
