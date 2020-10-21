@@ -44,7 +44,6 @@ section {
 
 #home {
     .logo-home {
-        margin-top: -5vh;
         img {
             display: inline-block;
             width: auto;
@@ -77,10 +76,7 @@ section {
     }
 
     .scroll-indicator {
-        position: absolute;
-        bottom: 6vh;
-        left: 50%;
-        margin-left: -2.5vh;
+        margin-top: 7.5vh;
         width: 5vh;
         animation: bounce 1s ease infinite;
     }
