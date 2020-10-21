@@ -25,6 +25,7 @@
     "@babel/core": "^7.12.3",
     "@gen/rollup-plugin-generate-html": "^0.1.1",
     "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "node-sass": "^4.14.1",
     "rollup": "^2.32.0",
     "rollup-plugin-copy": "^3.3.0",
