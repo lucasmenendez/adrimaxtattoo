@@ -1,3 +1,6 @@
+import  "smoothscroll-polyfill";
+window.__forceSmoothScrollPolyfill__ = true;
+
 export default class ScrollablePage {
     constructor(parentSelector = "main", childSelector = "section") {
         this.current = null;
@@ -27,8 +30,6 @@ export default class ScrollablePage {
             this.current = parent.firstElementChild;
             this.current.classList.add("active");
         }
-
-        window.scroll({ top: 0 });
     }
 
     listenEvents() {

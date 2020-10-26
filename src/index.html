@@ -10,25 +10,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="main.css">
+		<script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
 	</head>
 
 	<body>
 		<main>
 			<section id="home">
-				<h1 class="logo-home">
-					<img src="assets/logo_big.svg"/>
+				<h1 class="logo-home" data-scroll>
+					<img src="assets/logo_big.png"/>
 					<small>AdrimaxTattoo</small>
 				</h1>
-				<h2 class="welcome-msg">
+				<h2 class="welcome-msg" data-scroll>
 					Welcome to the oficial site of <span>AdrimaxTattoo</span>
 				</h2>
 
-				<img class="scroll-indicator" src="./assets/scroll-indicator.svg"/>
+				<img class="scroll-indicator" src="./assets/scroll-indicator.svg" data-scroll/>
 			</section>
-			<section id="about-me">About Me</section>
-			<section id="portfolio">Portfolio</section>
+
+			<section id="about-me" data-scroll>
+				<div class="content">
+					<h3>About me</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac massa auctor, rhoncus orci et, sagittis libero. Ut mi turpis, aliquet nec justo ac, placerat tempus diam. Duis nec justo tempor, mollis odio non, euismod orci.</p>
+					<p>Maecenas euismod pulvinar enim vel aliquam. Cras ligula risus, egestas et mi sit amet, blandit aliquam elit. Cras scelerisque tempor eros, quis interdum enim consectetur at. Vivamus eu nisl eu mi auctor vulputate et in sapien.</p>
+					<img src="assets/sign.png"/>
+				</div>
+			</section>
+
+			<section id="portfolio">
+				<div class="slide">Realism</div>
+				<div class="slide">Lettering</div>
+			</section>
+
 			<section id="contact">Contact</section>
 		</main>
-		<script src="main.js"></script>
+
+		<script src="main.min.js"></script>
 	</body>
 </html>

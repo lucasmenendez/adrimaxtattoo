@@ -18,10 +18,7 @@
     "url": "https://github.com/lucasmenendez/adrimax/issues"
   },
   "homepage": "https://github.com/lucasmenendez/adrimax#readme",
-  "dependencies": {
-    "locomotive-scroll": "github:locomotivemtl/locomotive-scroll#v4",
-    "smoothscroll-polyfill": "^0.4.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@gen/rollup-plugin-generate-html": "^0.1.1",
