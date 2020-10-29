@@ -29,7 +29,7 @@
 
 			<section id="about-me" data-scroll>
 				<div class="content">
-					<h3>About me</h3>
+					<h2>About me</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac massa auctor, rhoncus orci et, sagittis libero. Ut mi turpis, aliquet nec justo ac, placerat tempus diam. Duis nec justo tempor, mollis odio non, euismod orci.</p>
 					<p>Maecenas euismod pulvinar enim vel aliquam. Cras ligula risus, egestas et mi sit amet, blandit aliquam elit. Cras scelerisque tempor eros, quis interdum enim consectetur at. Vivamus eu nisl eu mi auctor vulputate et in sapien.</p>
 					<img src="assets/sign.png"/>
@@ -37,13 +37,25 @@
 			</section>
 
 			<section id="portfolio">
-				<div class="slide">Realism</div>
-				<div class="slide">Lettering</div>
+				<h2 class="section-title">My work</h2>
+				<input type="radio" id="state-menu" name="galleries" class="gallery-state" value="menu" checked>
+				<input type="radio" id="state-realism" name="galleries" class="gallery-state" value="realism">
+				<input type="radio" id="state-lettering" name="galleries" class="gallery-state" value="lettering">
+				
+				<div id="realism" class="gallery">
+					<label for="state-menu" class="close-gallery">✕</label>
+					<label for="state-realism" class="gallery-title">Realism</label>
+				</div>
+				<div id="lettering" class="gallery">
+					<label for="state-menu" class="close-gallery">✕</label>
+					<label for="state-lettering" class="gallery-title">Lettering</label>
+				</div>
 			</section>
 
 			<section id="contact">Contact</section>
 		</main>
 
+		<script src="assets/InstagramFeed.min.js"></script>
 		<script src="main.min.js"></script>
 	</body>
 </html>

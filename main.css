@@ -1,20 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
-@keyframes fadein {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-
-@keyframes bounce {
-  50% {
-    transform: translateY(-20%); }
-  100% {
-    transform: translateY(0); } }
-
-.step {
-  background: #222; }
-
 *, html > * {
   margin: 0;
   padding: 0;
@@ -22,9 +7,6 @@
   scrollbar-width: none; }
   *::-webkit-scrollbar, html > *::-webkit-scrollbar {
     display: none; }
-
-[data-scroll] {
-  transition: all .05s ease-in-out; }
 
 html {
   font-weight: lighter;
@@ -46,8 +28,18 @@ section {
   height: 100vh;
   width: 100vw; }
 
+[data-scroll] {
+  transition: all .05s ease-in-out; }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
 #home .logo-home {
-  opacity: var(--visible-y); }
+  opacity: var(--visible-y);
+  transform: scale(calc(0.5 + calc(var(--visible-y) * 0.5))); }
   #home .logo-home img {
     display: inline-block;
     width: auto;
@@ -74,9 +66,8 @@ section {
 
 #home .scroll-indicator {
   width: 5vh;
-  opacity: var(--visible-y);
-  transform: translateY(calc(60% * var(--viewport-y)));
-  animation: bounce 1s ease infinite; }
+  opacity: calc(1 - var(--viewport-y));
+  transform: translateY(calc(60% * var(--viewport-y))); }
 
 #about-me {
   background-image: url("./assets/about-bg.jpg");
@@ -96,7 +87,7 @@ section {
     padding: 5vh 3vw;
     color: black;
     transform: translateY(calc(-100% * var(--viewport-y))); }
-    #about-me .content h3 {
+    #about-me .content h2 {
       font-size: 2em;
       margin: 2vh 0; }
     #about-me .content p {
@@ -115,3 +106,90 @@ section {
     width: 80vw;
     margin-top: 120vh;
     margin-left: 0vw; } }
+
+#portfolio {
+  display: inline-block;
+  vertical-align: top;
+  position: relative; }
+  #portfolio .section-title {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: 20vh;
+    line-height: 20vh;
+    font-size: 2em;
+    text-align: center; }
+  #portfolio .gallery-state {
+    visibility: hidden;
+    opacity: 0; }
+    #portfolio .gallery-state#state-realism:checked ~ .gallery#realism {
+      top: 20vh;
+      left: 0;
+      width: 100vw;
+      height: 80vh;
+      z-index: 1; }
+    #portfolio .gallery-state#state-lettering:checked ~ .gallery#lettering {
+      top: 20vh;
+      left: 0;
+      width: 100vw;
+      height: 80vh;
+      z-index: 1; }
+    #portfolio .gallery-state#state-menu:checked ~ .gallery .close-gallery {
+      opacity: 0;
+      visibility: hidden; }
+  #portfolio .gallery {
+    position: absolute;
+    top: 20vh;
+    left: 0;
+    width: 50vw;
+    height: 80vh;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in-out;
+    background: red; }
+    #portfolio .gallery#lettering {
+      left: 50vw;
+      background: blue; }
+    #portfolio .gallery .close-gallery {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10vh;
+      height: 10vh;
+      line-height: 10vh;
+      text-align: center;
+      font-size: 4em;
+      transition: all .2s ease-in-out; }
+
+@media only screen and (max-width: 768px) {
+  #portfolio .gallery-state#state-realism:checked ~ .gallery#realism {
+    top: 20vh;
+    left: 0;
+    width: 100vw;
+    height: 80vh;
+    z-index: 1; }
+  #portfolio .gallery-state#state-lettering:checked ~ .gallery#lettering {
+    top: 20vh;
+    left: 0;
+    width: 100vw;
+    height: 80vh;
+    z-index: 1; }
+  #portfolio .gallery-state#state-menu:checked ~ .gallery#realism {
+    top: 20vh;
+    left: 0;
+    width: 100vw;
+    height: 40vh; }
+  #portfolio .gallery-state#state-menu:checked ~ .gallery#lettering {
+    top: 60vh;
+    left: 0;
+    width: 100vw;
+    height: 40vh; }
+  #portfolio .gallery {
+    top: 20vh;
+    width: 100vw;
+    height: 40vh; }
+    #portfolio .gallery#lettering {
+      left: 0;
+      top: 60vh; } }
