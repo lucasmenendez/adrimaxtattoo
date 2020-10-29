@@ -23,6 +23,29 @@
             width: 100vw;
             height: 80vh;
             z-index: 1;
+            background: $red;
+
+            .state-btn {
+                width: 100%;
+                top: 5vh;
+                transform: none;
+                height: 5vh;
+
+                .gallery-icon { 
+                    display: inline-block;
+                    vertical-align: top;
+                    height: 5vh; 
+                    filter: brightness(10000); 
+                }
+                .gallery-title { 
+                    display: inline-block;
+                    vertical-align: top;
+                    color: white;
+                    line-height: 5vh;
+                    margin-top: 0;
+                    margin-left: 2vw;
+                }
+            } 
         }
 
         &#state-lettering:checked ~ .gallery#lettering {
@@ -31,12 +54,38 @@
             width: 100vw;
             height: 80vh;
             z-index: 1;
+            background: $brown;
+
+            .state-btn {
+                width: 100%;
+                top: 5vh;
+                transform: none;
+                height: 5vh;
+
+                .gallery-icon { 
+                    display: inline-block;
+                    vertical-align: top;
+                    height: 5vh; 
+                    filter: brightness(10000); 
+                }
+
+                .gallery-title { 
+                    display: inline-block;
+                    vertical-align: top;
+                    color: white;
+                    line-height: 5vh;
+                    margin-top: 0;
+                    margin-left: 2vw;
+                }
+            }
         }
 
         &#state-menu:checked ~ .gallery .close-gallery {
             opacity: 0;
             visibility: hidden;
         }
+
+
     }
 
     .gallery {
@@ -48,22 +97,61 @@
         z-index: 0;
 
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         transition: all .2s ease-in-out;
-        background: red;
+        cursor: pointer;
 
-        &#lettering { left: 50vw; background: blue; }
+        &#lettering { left: 50vw; }
+
+        &:hover {
+            &#realism { background: $red; }
+            &#lettering { background: $brown; }
+
+            .state-btn .gallery-icon { filter: brightness(10000); }
+            .state-btn .gallery-title { color: white !important; }
+        }
 
         .close-gallery {
             position: absolute;
-            top: 0; left: 0;
-            width: 10vh;
-            height: 10vh;
-            line-height: 10vh;
+            top: 1vh; left: 1vh;
+            width: 8vh;
+            height: 8vh;
+            line-height: 8vh;
             text-align: center;
-            font-size: 4em;
+            font-size: 3em;
             transition: all .2s ease-in-out;
+            z-index: 2;
+            color: white;
+        }
+
+        .state-btn {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            transform: translateY(-50%);
+            transition: all .25s ease;
+            cursor: pointer;
+
+            .gallery-icon {
+                display: inline-block;
+                vertical-align: top;
+                max-width: 50%;
+                transition: all .3s ease;
+            }
+
+            .gallery-title {
+                display: block;
+                font-size: 2em;
+                margin-top: 5vh;
+                transition: all .3s ease;
+            }
+
+            &[for="state-realism"] .gallery-title { color: $red; }
+            &[for="state-lettering"] .gallery-title { color: $brown; }
         }
     }
 }
