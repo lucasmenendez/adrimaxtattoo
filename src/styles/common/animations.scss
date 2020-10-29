@@ -1,0 +1,6 @@
+[data-scroll] { transition: all .05s ease-in-out; }
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

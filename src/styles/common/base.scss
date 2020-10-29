@@ -1,0 +1,32 @@
+*, html > * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+}
+
+html {
+    font-weight: lighter;
+    font-family: 'Roboto Mono', monospace;
+
+    background: $bg-general;
+    color: $font-color;
+
+    //overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Alex Brush', cursive; }
+
+section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    height: 100vh;
+    width: 100vw;
+}

@@ -1,0 +1,42 @@
+#home {
+    .logo-home {
+        opacity: var(--visible-y);
+        transform: scale(calc(0.5 + calc(var(--visible-y) * 0.5)));
+        
+        img {
+            display: inline-block;
+            width: auto;
+            height: 50vh;
+            animation: fadein 3.5s ease-in-out;
+        }
+
+        small {
+            float: left;
+            visibility: hidden;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    .welcome-msg {
+        margin: 5vh 0 7.5vh;
+        text-align: center;
+        font-size: 1.5em;
+        color: darken($font-color, 40%);
+        transform: translateY(calc(60% * var(--viewport-y)));
+        animation: fadein 2.5s ease-in-out;
+
+        span {
+            display: block;
+            font-size: 2em;
+            color: $font-color;
+        }
+    }
+
+    .scroll-indicator { 
+        width: 5vh; 
+        opacity: calc(1 - var(--viewport-y));
+        transform: translateY(calc(60% * var(--viewport-y)));
+    }
+}
