@@ -1,12 +1,38 @@
 import "../styles/main.scss";
 
-
 ScrollOut({
     cssProps: {
         viewportY: true,
         visibleY: true,
     }
 });
+
+const portfolio = document.querySelector("#portfolio .gallery");
+
+portfolio.addEventListener("wheel", e => onWheelScroll(e));
+portfolio.addEventListener("mousewheel", e => onWheelScroll(e));
+portfolio.addEventListener("DOMMouseScroll", e => onWheelScroll(e));
+
+let stopped = false;
+function onWheelScroll(event) {
+    const start = 0;
+    const end = portfolio.scrollWidth - portfolio.offsetWidth;
+
+    if (
+        (event.deltaY < 0 && portfolio.scrollLeft == end) ||
+        (event.deltaY > 0 && portfolio.scrollLeft == start)
+    ) stopped = false;
+
+    if (!stopped) {
+        portfolio.scrollLeft += event.deltaY;
+        event.preventDefault();
+    }
+
+    if (
+        (event.deltaY < 0 && portfolio.scrollLeft <= start) ||
+        (event.deltaY > 0 && portfolio.scrollLeft >= end)
+    ) stopped = true;
+}
 
 
 function getMedia() {
