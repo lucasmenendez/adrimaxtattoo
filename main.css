@@ -110,6 +110,12 @@ section {
 #portfolio {
   display: inline-block;
   vertical-align: top;
+  position: relative;
+  overflow: hidden;
+  opacity: var(--visible-y);
+  transition: opacity .3 ease-in-out;
+  background: white;
+  color: black;
   position: relative; }
   #portfolio .section-title {
     display: inline-block;
@@ -118,147 +124,59 @@ section {
     height: 20vh;
     line-height: 20vh;
     font-size: 2em;
-    text-align: center; }
-  #portfolio .gallery-state {
-    visibility: hidden;
-    opacity: 0; }
-    #portfolio .gallery-state#state-realism:checked ~ .gallery#realism {
-      top: 20vh;
-      left: 0;
-      width: 100vw;
-      height: 80vh;
-      z-index: 1;
-      background: #bf1e2e; }
-      #portfolio .gallery-state#state-realism:checked ~ .gallery#realism .state-btn {
-        width: 100%;
-        top: 5vh;
-        transform: none;
-        height: 5vh; }
-        #portfolio .gallery-state#state-realism:checked ~ .gallery#realism .state-btn .gallery-icon {
-          display: inline-block;
-          vertical-align: top;
-          height: 5vh;
-          filter: brightness(10000); }
-        #portfolio .gallery-state#state-realism:checked ~ .gallery#realism .state-btn .gallery-title {
-          display: inline-block;
-          vertical-align: top;
-          color: white;
-          line-height: 5vh;
-          margin-top: 0;
-          margin-left: 2vw; }
-    #portfolio .gallery-state#state-lettering:checked ~ .gallery#lettering {
-      top: 20vh;
-      left: 0;
-      width: 100vw;
-      height: 80vh;
-      z-index: 1;
-      background: #716658; }
-      #portfolio .gallery-state#state-lettering:checked ~ .gallery#lettering .state-btn {
-        width: 100%;
-        top: 5vh;
-        transform: none;
-        height: 5vh; }
-        #portfolio .gallery-state#state-lettering:checked ~ .gallery#lettering .state-btn .gallery-icon {
-          display: inline-block;
-          vertical-align: top;
-          height: 5vh;
-          filter: brightness(10000); }
-        #portfolio .gallery-state#state-lettering:checked ~ .gallery#lettering .state-btn .gallery-title {
-          display: inline-block;
-          vertical-align: top;
-          color: white;
-          line-height: 5vh;
-          margin-top: 0;
-          margin-left: 2vw; }
-    #portfolio .gallery-state#state-menu:checked ~ .gallery .close-gallery {
-      opacity: 0;
-      visibility: hidden; }
+    text-align: center;
+    align-content: space-around; }
   #portfolio .gallery {
-    position: absolute;
-    top: 20vh;
-    left: 0;
-    width: 50vw;
-    height: 80vh;
-    z-index: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all .2s ease-in-out;
-    cursor: pointer; }
-    #portfolio .gallery#lettering {
-      left: 50vw; }
-    #portfolio .gallery:hover#realism {
-      background: #bf1e2e; }
-    #portfolio .gallery:hover#lettering {
-      background: #716658; }
-    #portfolio .gallery:hover .state-btn .gallery-icon {
-      filter: brightness(10000); }
-    #portfolio .gallery:hover .state-btn .gallery-title {
-      color: white !important; }
-    #portfolio .gallery .close-gallery {
-      position: absolute;
-      top: 1vh;
-      left: 1vh;
-      width: 8vh;
-      height: 8vh;
-      line-height: 8vh;
-      text-align: center;
-      font-size: 3em;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 80vh;
+    overflow-x: auto;
+    align-content: flex-start;
+    padding: 2vh 10vh 0 30vw; }
+    #portfolio .gallery .thumbnail {
+      width: 20vh;
+      height: 20vh;
+      background-image: var(--thumbnail);
+      background-position: center;
+      background-size: cover;
+      margin: 2vh;
+      cursor: pointer;
       transition: all .2s ease-in-out;
-      z-index: 2;
-      color: white; }
-    #portfolio .gallery .state-btn {
-      position: absolute;
-      top: 50%;
+      box-shadow: 0px 10px 30px -10px #222;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent; }
+      #portfolio .gallery .thumbnail:hover {
+        transform: scale(1.1); }
+      #portfolio .gallery .thumbnail:active + .img {
+        opacity: 1;
+        visibility: visible; }
+    #portfolio .gallery .img {
+      content: '';
+      position: fixed;
+      display: block;
+      top: 0;
       left: 0;
       width: 100%;
-      text-align: center;
-      transform: translateY(-50%);
-      transition: all .25s ease;
-      cursor: pointer; }
-      #portfolio .gallery .state-btn .gallery-icon {
-        display: inline-block;
-        vertical-align: top;
-        max-width: 50%;
-        transition: all .3s ease; }
-      #portfolio .gallery .state-btn .gallery-title {
-        display: block;
-        font-size: 2em;
-        margin-top: 5vh;
-        transition: all .3s ease; }
-      #portfolio .gallery .state-btn[for="state-realism"] .gallery-title {
-        color: #bf1e2e; }
-      #portfolio .gallery .state-btn[for="state-lettering"] .gallery-title {
-        color: #716658; }
+      height: 100%;
+      background-color: black;
+      background-image: var(--img);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .2s ease-in-out; }
+      #portfolio .gallery .img:active {
+        opacity: 1;
+        visibility: visible; }
 
 @media only screen and (max-width: 768px) {
-  #portfolio .gallery-state#state-realism:checked ~ .gallery#realism {
-    top: 20vh;
-    left: 0;
-    width: 100vw;
-    height: 80vh;
-    z-index: 1; }
-  #portfolio .gallery-state#state-lettering:checked ~ .gallery#lettering {
-    top: 20vh;
-    left: 0;
-    width: 100vw;
-    height: 80vh;
-    z-index: 1; }
-  #portfolio .gallery-state#state-menu:checked ~ .gallery#realism {
-    top: 20vh;
-    left: 0;
-    width: 100vw;
-    height: 40vh; }
-  #portfolio .gallery-state#state-menu:checked ~ .gallery#lettering {
-    top: 60vh;
-    left: 0;
-    width: 100vw;
-    height: 40vh; }
   #portfolio .gallery {
-    top: 20vh;
-    width: 100vw;
-    height: 40vh; }
-    #portfolio .gallery#lettering {
-      left: 0;
-      top: 60vh; } }
+    padding-left: 15vh; } }

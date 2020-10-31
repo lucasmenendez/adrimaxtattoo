@@ -1,1 +1,1 @@
-"use strict";ScrollOut({cssProps:{viewportY:!0,visibleY:!0}});
+"use strict";ScrollOut({cssProps:{viewportY:!0,visibleY:!0}});const e=document.querySelector("#portfolio .gallery");e.addEventListener("wheel",(e=>l(e))),e.addEventListener("mousewheel",(e=>l(e))),e.addEventListener("DOMMouseScroll",(e=>l(e)));let t=!1;function l(l){const o=e.scrollWidth-e.offsetWidth;(l.deltaY<0&&e.scrollLeft==o||l.deltaY>0&&0==e.scrollLeft)&&(t=!1),t||(e.scrollLeft+=l.deltaY,l.preventDefault()),(l.deltaY<0&&e.scrollLeft<=0||l.deltaY>0&&e.scrollLeft>=o)&&(t=!0)}
